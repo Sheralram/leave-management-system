@@ -1,0 +1,137 @@
+<app-header> </app-header>
+
+
+<div class="form-content" style=" margin-top: 73px;">
+    <!-- <form   (ngSubmit)="onSubmit()" >                  -->
+        <form    [formGroup]="employeeForm" > 
+        <div class="form-head">Employee Leave form</div>
+
+        <!-- Name -->
+        <div class="row-content">
+            <label class="label text" for="name">FullName</label>
+            <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
+                placeholder="Your name.." required [ngModelOptions]= "{ standalone: true }" />     -->
+                <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
+                placeholder="Your name.." required  /> 
+                <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')">* Name is required</span>
+            </div>
+
+
+         
+
+
+    <div class="row-content"> 
+            <label class="label text" for="leavetype">Leave Type</label>
+            <div>
+                <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="medical" id="medical" value="Medical" />
+                <label class="text" for="medical">Medical</label>
+                <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="vacation" id="vacation" value="Vacation" />
+                <label class="text" for="vacation">Vacation</label>
+            </div>
+        </div> 
+
+         
+
+    
+     <!-- Date -->
+ <div class="row-content">
+    <label for="startDate" class="label-text">Start Date</label>
+    <mat-form-field>
+      <input formControlName="leaveStartdate"
+        [(ngModel)]= "employee.leaveStartdate"
+        matInput
+        [matDatepicker]= "myDatePicker"
+      />
+      <mat-datepicker-toggle
+        [for]="myDatePicker"
+        matSuffix
+      ></mat-datepicker-toggle>
+      <mat-datepicker #myDatePicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+   <div class="row-content">
+    <label for="leaveEnddate" class="label-text">End Date</label>
+    <mat-form-field>
+      <input formControlName="leaveEnddate"
+        [(ngModel)]= "employee.leaveEnddate"
+        matInput
+        [matDatepicker]= "myDatePicker"
+        
+      />
+      <mat-datepicker-toggle
+        [for]="myDatePicker"
+        matSuffix
+      ></mat-datepicker-toggle>
+      <mat-datepicker #myDatePicker></mat-datepicker>
+    </mat-form-field>
+  </div> 
+
+
+  <!-- Notes -->
+  <div class="row-content">
+    <label class="label text" for="notes">Reason</label>
+    <textarea formControlName="notes" 
+      [(ngModel)]= "employee.notes"
+      class="input"
+      name="Notes"
+      id="notes"
+      placeholder=""
+      style="height: 100px"
+    ></textarea>
+    <span class="text-danger" *ngIf="employeeForm.controls['notes'].dirty && employeeForm.hasError('required','notes')">* Notes is required</span>
+
+  </div>
+
+  <!-- Submit, Cancel, Reset Buttons -->
+  <div class="buttonParent">
+    <a routerLink="/home" href="./header.component.html" class="resetButton button cancelButton">Cancel</a>
+    <div class="submit-reset">
+        <button type="submit" class="button submitButton"  id="submitButton" [disabled]="!employeeForm.valid" (click)="onSubmit()">Submit</button>
+        <button type="reset" class="resetButton button" >Reset</button>
+    </div>
+</div>
+
+
+
+</form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

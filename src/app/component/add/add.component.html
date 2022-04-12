@@ -26,6 +26,8 @@
                 <label class="text" for="medical">Medical</label>
                 <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="leavetype" id="vacation" value="Vacation" />
                 <label class="text" for="vacation">Vacation</label>
+              <span class="text-danger" *ngIf="employeeForm.controls['leavetype'].dirty && employeeForm.hasError('required','leavetype')">* Leave type Selection is required</span>
+
             </div>
         </div> 
 
@@ -33,17 +35,17 @@
 
     
      <!-- Date -->
- <div class="row-content">
-    <label for="startDate" class="label-text">Start Date</label>
+ <div class="row-content" >
+    <label for="startDate" class="label-text" >Start Date</label>
     <mat-form-field>
       <input formControlName="leaveStartdate"
         [(ngModel)]= "employee.leaveStartdate"
         matInput
-        [matDatepicker]= "myDatePickerr" 
+        [matDatepicker]= "myDatePickerr"  placeholder=" Choose Your Start Date.."
       />
       <mat-datepicker-toggle
         [for]="myDatePickerr"
-        matSuffix
+        matSuffix    style=" color: sandybrown "
       ></mat-datepicker-toggle>
       <mat-datepicker #myDatePickerr></mat-datepicker>
     </mat-form-field>
@@ -55,12 +57,12 @@
       <input formControlName="leaveEnddate"
         [(ngModel)]= "employee.leaveEnddate"
         matInput
-        [matDatepicker]= "myDatePicker"
+        [matDatepicker]= "myDatePicker" placeholder=" Choose Your End Date.."
         
       />
       <mat-datepicker-toggle
         [for]="myDatePicker"
-        matSuffix
+        matSuffix  style=" color: sandybrown "
       ></mat-datepicker-toggle>
       <mat-datepicker #myDatePicker></mat-datepicker>
     </mat-form-field>
@@ -78,7 +80,7 @@
       placeholder=""
       style="height: 100px"
     ></textarea>
-    <span class="text-danger" *ngIf="employeeForm.controls['notes'].dirty && employeeForm.hasError('required','notes')">* Notes is required</span>
+    <span class="text-danger" *ngIf="employeeForm.controls['notes'].dirty && employeeForm.hasError('required','notes')">*Reason is required</span>
 
   </div>
 

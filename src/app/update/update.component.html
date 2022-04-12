@@ -36,12 +36,11 @@
         <div class="row-content"> 
           <label class="label text" for="leavetype">Leave Type</label>
           <div>
-              <input  type="radio" name="medical"  value="Medical" formControlName="leavetype" [(ngModel)]= "employee.leavetype" required  />
+              <input  type="radio" name="leavetype"  value="Medical" formControlName="leavetype" [(ngModel)]= "employee.leavetype" required  />
               <label class="text" for="medical">Medical</label>
-              <input type="radio" name="vacation" value="Vacation" formControlName="leavetype" [(ngModel)]= "employee.leavetype" required   />
+              <input type="radio" name="leavetype" value="Vacation" formControlName="leavetype" [(ngModel)]= "employee.leavetype" required   />
               <label class="text" for="vacation">Vacation</label>
-              <!-- <input type="radio" value="medical" name="medical" for="medical" [(ngModel)]="employee.leavetype" required > Medical
-              <input type="radio" value="vacation" name="vacation" for="vacation" [(ngModel)]="employee.leavetype" required> Vacation -->
+           
           </div>
       </div> 
 

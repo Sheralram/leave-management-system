@@ -32,7 +32,7 @@
     flex-direction: row;
     margin-bottom: 15px;
     align-items: center;
-    border: 0px solid green;
+    border: 0px  green;
 }
 .label {
     min-width: 140px;
@@ -53,20 +53,20 @@ label {
     border-radius: 4px;
     resize: vertical;
 }
-.profile-radio-content {
-    display: flex;
-    flex-direction: row;
-  }
-  .profile-radio-content > label {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .profile {
-    width: 40px;
-    border-radius: 50%;
-    margin-left: 12px;
-  }    
+// .profile-radio-content {
+//     display: flex;
+//     flex-direction: row;
+//   }
+//   .profile-radio-content > label {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//   }
+//   .profile {
+//     width: 40px;
+//     border-radius: 50%;
+//     margin-left: 12px;
+//   }    
   .select{
       padding: 12px;
       border: 1px solid rgb(214, 12, 12);

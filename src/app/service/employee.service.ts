@@ -20,9 +20,7 @@ export class EmployeeService {
   getEmployeesList(): Observable<Employee[]> {
     return this.httpClient.get<Employee[]>(`${this.baseURL}/employees-list`);
   }
-  // getAllEmployees(): Observable<Employee[]> {
-  //   return this.httpClient.get<Employee[]>(`${this.baseURL}/employees-list`);
-  // }
+ 
   createEmployee (employee: Employee): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}/employees`, employee);
   }
@@ -38,4 +36,10 @@ export class EmployeeService {
   deleteEmployee(id: number): Observable<Object> {
     return this.httpClient.delete(`${this.baseURL}/employees-delete/${id}`);
   }
+
+  send(employee: Employee): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/send-mail`, employee);
+  }
+
+
 }

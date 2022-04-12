@@ -39,6 +39,7 @@ export class AddComponent implements OnInit {
 
   onSubmit(){
     console.log(this.employee);
+    this.sendEmail();
     this.saveEmployee();
     window.alert("Employee Leave Details added Successfully!");
   }
@@ -47,6 +48,15 @@ export class AddComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
+  sendEmail(){
+    this.employeeService.send(this.employee).subscribe(
+      data => {console.log(data);
+       this.goToEmployeeList();
+     },
+    error => console.log(error));
+    this.goToEmployeeList();
+  }
+  
    saveEmployee(){
     // this.employee.department = this.selectedDepartment;
      this.employeeService.createEmployee(this.employee).subscribe(

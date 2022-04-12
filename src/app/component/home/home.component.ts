@@ -29,10 +29,7 @@ export class HomeComponent implements OnInit {
     this.employeeService.getEmployeesList().subscribe((data) => {
       console.log(data.values);
       this.employees = data;
-    });
-
-  
-  
+    })  
   }
 
   updateEmployee(id: number) {
@@ -44,8 +41,7 @@ export class HomeComponent implements OnInit {
     this.employeeService.deleteEmployee(id).subscribe((data) => {
       console.log(data);
       this.getEmployees();
-      
-    });
+      });
   }
 
   onClick(){
@@ -58,6 +54,8 @@ export class HomeComponent implements OnInit {
     console.log("delete successfully" );
     window.alert("Employee Leave Detail is deleted Successfully!");
   }
+
+
 
 }
 

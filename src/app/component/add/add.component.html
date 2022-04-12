@@ -2,7 +2,7 @@
 
 
 <div class="form-content" style=" margin-top: 73px;">
-    <!-- <form   (ngSubmit)="onSubmit()" >                  -->
+    <!-- <form   (ngSubmit)="onSubmit()" >   -->
         <form    [formGroup]="employeeForm" > 
         <div class="form-head">Employee Leave form</div>
 
@@ -15,7 +15,6 @@
                 placeholder="Your name.." required  /> 
                 <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')">* Name is required</span>
             </div>
-
 
          
 
@@ -87,9 +86,15 @@
   <div class="buttonParent">
     <a routerLink="/home" href="./header.component.html" class="resetButton button cancelButton">Cancel</a>
     <div class="submit-reset">
-        <button type="submit" class="button submitButton"  id="submitButton" [disabled]="!employeeForm.valid" (click)="onSubmit()">Submit</button>
-        <button type="reset" class="resetButton button" >Reset</button>
-    </div>
+         <!-- <button type="button" class="button submitButton"  id="submitButton" [disabled]="!employeeForm.valid" (click)="onSubmit()">Submit</button> -->
+         <button type="button"  [attr.disabled]="!employeeForm.valid ? true : null"  (click)="onSubmit()" style="    margin-left: 40px;
+         margin-right: 41px;">Submit</button> 
+
+         <button type="button" class="resetButton button" >Reset</button>
+        
+        <!-- <button type="button"  [attr.disabled]="!employeeForm.valid ? true : null"  (click)="onSubmit()">Submit</button>  -->
+    
+      </div>
 </div>
 
 

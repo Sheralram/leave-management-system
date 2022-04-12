@@ -55,7 +55,7 @@ export class UpdateComponent implements OnInit {
 
     buttonClick() {
       console.log('button click');
-     // this.snack.open('Form updated succesfully', 'Cancel');
+    
     }
   
 

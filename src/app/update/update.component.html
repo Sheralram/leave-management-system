@@ -1,29 +1,287 @@
-<app-header></app-header>
+<app-header> </app-header>
+
+
+<div class="form-content" style=" margin-top: 73px;">
+    <!-- <form   (ngSubmit)="onSubmit()" >                  -->
+        <form    [formGroup]="employeeForm" > 
+        <div class="form-head">Employee Update Leave form</div>
+
+        <!-- Name -->
+        <div class="row-content">
+            <label class="label text" for="name">FullName</label>
+            <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
+                placeholder="Your name.." required [ngModelOptions]= "{ standalone: true }" />     -->
+                <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
+                placeholder="Your name.." required    /> 
+                <!-- <span>{{ employeeForm.controls['name']?.value }}</span> -->
+                <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')">* Name is required</span>
+            </div>
+
+     
+
+
+
+
+    <!-- <div class="row-content"> 
+            <label class="label text" for="leavetype">Leave Type</label>
+            <div>
+                <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="medical" id="medical" value="Medical" />
+                <label class="text" for="medical">Medical</label>
+                <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="vacation" id="vacation" value="Vacation" />
+                <label class="text" for="vacation">Vacation</label> #leavetypeControl="ngModel"
+            </div>
+        </div>  -->
+
+
+        <div class="row-content"> 
+          <label class="label text" for="leavetype">Leave Type</label>
+          <div>
+              <input  type="radio" name="medical"  value="Medical" formControlName="leavetype" [(ngModel)]= "employee.leavetype" required  />
+              <label class="text" for="medical">Medical</label>
+              <input type="radio" name="vacation" value="Vacation" formControlName="leavetype" [(ngModel)]= "employee.leavetype" required   />
+              <label class="text" for="vacation">Vacation</label>
+              <!-- <input type="radio" value="medical" name="medical" for="medical" [(ngModel)]="employee.leavetype" required > Medical
+              <input type="radio" value="vacation" name="vacation" for="vacation" [(ngModel)]="employee.leavetype" required> Vacation -->
+          </div>
+      </div> 
+
+         
+
+
+
+
+
+       
+
+    
+     <!-- Date -->
+ <div class="row-content">
+    <label for="leaveStartDate" class="label-text">Start Date</label>
+    <mat-form-field>
+      <input formControlName="leaveStartdate"
+        [(ngModel)]= "employee.leaveStartdate"
+        matInput
+        [matDatepicker]= "myDatePicker"
+      />
+      <mat-datepicker-toggle
+        [for]="myDatePicker"
+        matSuffix
+      ></mat-datepicker-toggle>
+      <mat-datepicker #myDatePicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+   <div class="row-content">
+    <label for="leaveEnddate" class="label-text">End Date</label>
+    <mat-form-field>
+      <input formControlName="leaveEnddate"
+        [(ngModel)]= "employee.leaveEnddate"
+        matInput
+        [matDatepicker]= "myDatePicker"
+        
+      />
+      <mat-datepicker-toggle
+        [for]="myDatePicker"
+        matSuffix
+      ></mat-datepicker-toggle>
+      <mat-datepicker #myDatePicker></mat-datepicker>
+    </mat-form-field>
+  </div> 
+
+
+  <!-- Notes -->
+  <div class="row-content">
+    <label class="label text" for="notes">Reason</label>
+    <textarea formControlName="notes" 
+      [(ngModel)]= "employee.notes"
+      class="input"
+      name="Notes"
+      id="notes"
+      placeholder=""
+      style="height: 100px"
+    ></textarea>
+    <span class="text-danger" *ngIf="employeeForm.controls['notes'].dirty && employeeForm.hasError('required','notes')">* Notes is required</span>
+
+  </div>
+
+  <!-- <Submit, Cancel, Reset Buttons -->
+   <div class="buttonParent">
+    <a routerLink="/home" href="./header.component.html" class="resetButton button cancelButton">Cancel</a>
+    <div class="submit-reset">
+        <button type="button" class="button submitButton"  id="submitButton " (click)= "onSubmit()">Update</button>
+        <button type="button" class="resetButton button" >Reset</button>
+    </div>
+</div>
+
+
+
+</form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <app-header></app-header>
 <p>update works!</p>
 
 <div class="form-content" >
 
-    <!-- <form   (ngSubmit)= "onSubmit()"> -->
+     <form   (ngSubmit)= "onSubmit()"> -->
 
-        <form [formGroup]="employeeForm"  >
+        <!-- <form [formGroup]="employeeForm"  >
         
-
-        <div class="form-head">Employee Leave Update form</div>
+          <div class="form-head">Employee Leave Update form</div> --> -->
 
 
         
 <!-- Name -->
-<div class="row-content">
+<!-- <div class="row-content">
     <label class="label text" for="name">Name</label>
     <!-- <input [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="firstName"
         placeholder="Your name.." required [ngModelOptions]="{ standalone: true }" /> -->
-        <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
+        <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
         placeholder="Your name.." required  /> 
-        <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')">* Name is required</span>
-</div>
+        <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')">* Name is required</span> -->
+<!-- </div> --> 
+
+
 
 <!-- LEAVETYPE -->
-<div class="row-content"> 
+<!-- <div class="row-content"> 
     <label class="label text" for="leavetype">Leave Type</label>
     <div>
         <input [(ngModel)]= "employee.leavetype" type="radio" name="medical" id="medical" value="Medical" />
@@ -31,14 +289,13 @@
         <input [(ngModel)]= "employee.leavetype" type="radio" name="vacation" id="vacation" value="Vacation" />
         <label class="text" for="vacation">Vacation</label>
     </div>
-</div> 
+</div>  -->
 
 
 
 
 
-
-    <!-- LEAVE DATE -->
+    <!-- LEAVE DATE
   <div class="row-content date">
     <label for="startDate" class="label-text"> Leave Start Date</label>
   <mat-form-field>
@@ -57,12 +314,12 @@
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field></div>
-  
+   -->
 
 
 
    <!-- Notes -->
-   <div class="row-content">
+   <!-- <div class="row-content">
     <label class="label text" for="notes">Reason</label>
     <textarea
       [(ngModel)]= "employee.notes"
@@ -73,7 +330,7 @@
       style="height: 100px"
     ></textarea>
     <span class="text-danger" *ngIf="employeeForm.controls['notes'].dirty && employeeForm.hasError('required','notes')">* Notes is required</span>
-  </div>
+  </div> -->
 
 
 
@@ -83,7 +340,7 @@
 
   
    <!-- Submit, Cancel, Reset Buttons -->
-   <div class="buttonParent">
+   <!-- <div class="buttonParent">
     <a routerLink="/home" href="./header.component.html" class="resetButton button cancelButton">Cancel</a>
     <div class="submit-reset">
         <button type="submit" class="button submitButton"  id="submitButton " (click)= "onSubmit()">Update</button>
@@ -92,4 +349,4 @@
 </div>
          
     </form>
-</div>
+</div> -->

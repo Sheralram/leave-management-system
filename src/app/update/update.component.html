@@ -108,8 +108,10 @@
    <div class="buttonParent">
     <a routerLink="/home" href="./header.component.html" class="resetButton button cancelButton">Cancel</a>
     <div class="submit-reset">
-        <button type="button" class="button submitButton"  id="submitButton " (click)= "onSubmit()">Update</button>
-        <button type="button" class="resetButton button" >Reset</button>
+             <!-- <button type="button" class="button submitButton"  id="submitButton " (click)= "onSubmit()">Update</button> -->
+             <button type="button"  [attr.disabled]="!employeeForm.valid ? true : null"  (click)="onSubmit()" style=" margin-left: 40px;
+             margin-right: 41px;">Update</button> 
+             <button type="button" class="resetButton button" >Reset</button>
     </div>
 </div>
 

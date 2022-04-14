@@ -5,6 +5,7 @@
     <!-- <form   (ngSubmit)="onSubmit()" >   -->
         <form    [formGroup]="employeeForm" > 
         <div class="form-head">Employee Leave form</div>
+        <h5 class="text-danger">*Please fill the form</h5>
 
         <!-- Name -->
         <div class="row-content">
@@ -43,12 +44,14 @@
         matInput
         [matDatepicker]= "myDatePickerr"  placeholder=" Choose Your Start Date.."
       />
+      <small class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date</small>
       <mat-datepicker-toggle
         [for]="myDatePickerr"
         matSuffix    style=" color: sandybrown "
       ></mat-datepicker-toggle>
       <mat-datepicker #myDatePickerr></mat-datepicker>
     </mat-form-field>
+    <!-- <small class="text-danger" *ngIf="employeeForm.hasError('notValid')">Not valid</small> -->
   </div>
 
    <div class="row-content">
@@ -60,12 +63,14 @@
         [matDatepicker]= "myDatePicker" placeholder=" Choose Your End Date.."
         
       />
+      <small class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date</small>
       <mat-datepicker-toggle
         [for]="myDatePicker"
         matSuffix  style=" color: sandybrown "
       ></mat-datepicker-toggle>
       <mat-datepicker #myDatePicker></mat-datepicker>
     </mat-form-field>
+    <!-- <small class="text-danger" *ngIf="employeeForm.hasError('notValid')">Not valid</small> -->
   </div> 
 
 

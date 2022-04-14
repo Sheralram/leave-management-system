@@ -2,10 +2,10 @@ export class Employee {
   id!: number;
   name!: string;
   leavetype!: string;
-  // notes!: string;
+  notes!: string;
   leaveStartdate!: string;
   leaveEnddate!: string;
-  notes!: string;
+  
 
   // status!: string;
   

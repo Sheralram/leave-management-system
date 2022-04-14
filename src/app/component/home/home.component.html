@@ -22,7 +22,7 @@
         <table id="display" class="table">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th >Id</th>
                     <th>Name</th>
                     <th style="word-spacing: 5px">Leave Type </th>
                     <th  style="text-align: center">Reason</th>
@@ -38,7 +38,7 @@
             </thead>
             
                 <tr *ngFor= "let employee of employees">
-                    <td>{{ employee.id }}</td>
+                    <td style = "margin-top: 12px">{{ employee.id }}</td>
                     <td>{{ employee.name }}</td>
                     <td>{{ employee.leavetype }}</td>
                     <td>{{ employee.notes}}</td>

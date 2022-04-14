@@ -33,7 +33,24 @@ export class AddComponent implements OnInit {
         leaveEnddate: ['', Validators.required ],
         notes: ['', Validators.required ],
             
-     });
+     }, {validator: this.checkDates});
+     
+     this.employeeForm.setValue({
+      leaveStartdate: this.employee.leaveStartdate,
+      leaveEnddate: this.employee.leaveEnddate
+    })
+    }
+
+    // this.employeeForm.setValue({
+    //   leaveStartdate: this.employee.leaveStartdate;
+    //   leaveEnddate: this.employee.leaveEnddate;
+    // })
+
+    checkDates(group: FormGroup) {
+      if(group.controls['leaveEnddate'].value < group.controls['leaveStartdate'].value) {
+        return { notValid:true }
+      }
+      return null;
     }
 
   onSubmit(){

@@ -1,7 +1,7 @@
 <app-header> </app-header>
 
 
-<div class="form-content" style=" margin-top: 73px;">
+<div class="form-content" style=" margin-top: 65px;">
     <!-- <form   (ngSubmit)="onSubmit()" >   -->
         <form    [formGroup]="employeeForm" > 
         <div class="form-head">Employee Leave form</div>
@@ -11,23 +11,23 @@
             <label class="label text" for="name">FullName</label>
             <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
                 placeholder="Your name.." required [ngModelOptions]= "{ standalone: true }" />     -->
-                <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
+                <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="name" name="name"
                 placeholder="Your name.." required  /> 
-                <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')">* Name is required</span>
+                <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')"  
+                style="width: 225px">* Name is required</span>
             </div>
-
          
 
-
     <div class="row-content"> 
-            <label class="label text" for="leavetype">Leave Type</label>
+            <label class="label text" for="leavetype" required>Leave Type</label>
             <div>
                 <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="leavetype" id="medical" value="Medical" checked />
                 <label class="text" for="medical">Medical</label>
                 <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="leavetype" id="vacation" value="Vacation" />
                 <label class="text" for="vacation">Vacation</label>
+                <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="leavetype" id="business tour" value="business tour" />
+                <label class="text" for="business tour">Business Tour</label>
               <span class="text-danger" *ngIf="employeeForm.controls['leavetype'].dirty && employeeForm.hasError('required','leavetype')">* Leave type Selection is required</span>
-
             </div>
         </div> 
 
@@ -80,17 +80,18 @@
       placeholder=""
       style="height: 100px"
     ></textarea>
-    <span class="text-danger" *ngIf="employeeForm.controls['notes'].dirty && employeeForm.hasError('required','notes')">*Reason is required</span>
+    <span class="text-danger" *ngIf="employeeForm.controls['notes'].dirty && employeeForm.hasError('required','notes')"
+    style="width: 240px">*Reason is required</span>
 
   </div>
 
   <!-- Submit, Cancel, Reset Buttons -->
   <div class="buttonParent">
-    <a routerLink="/home" href="./header.component.html" class="resetButton button cancelButton">Cancel</a>
+    <a routerLink="/home" href="./header.component.html" class="resetButton button cancelButton" style ="margin-left: 80px">Cancel</a>
     <div class="submit-reset">
          <!-- <button type="button" class="button submitButton"  id="submitButton" [disabled]="!employeeForm.valid" (click)="onSubmit()">Submit</button> -->
-         <button type="button"  [attr.disabled]="!employeeForm.valid ? true : null"  (click)="onSubmit()" style="    margin-left: 40px;
-         margin-right: 41px;">Submit</button> 
+         <button type="button"  [attr.disabled]="!employeeForm.valid ? true : null"  (click)="onSubmit()" style=" margin-left: 75px;
+         margin-right: 75px;">Submit</button> 
 
          <button type="button" class="resetButton button" >Reset</button>
         

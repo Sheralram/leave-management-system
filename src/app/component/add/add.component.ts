@@ -14,7 +14,7 @@ export class AddComponent implements OnInit {
 
   
   employee: Employee = new Employee(0, '', '', '', '', '',);
- 
+        
   selectedDepartment: any = [];
   public employeeForm!: FormGroup;
 
@@ -33,13 +33,12 @@ export class AddComponent implements OnInit {
         leaveEnddate: ['', Validators.required ],
         notes: ['', Validators.required ],
             
-
      });
     }
 
   onSubmit(){
     console.log(this.employee);
-    this.sendEmail();
+    // this.sendEmail();
     this.saveEmployee();
     window.alert("Employee Leave Details added Successfully!");
   }

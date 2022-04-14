@@ -17,7 +17,7 @@
                 <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')"  
                 style="width: 225px">* Name is required</span>
             </div>
-         
+      
 
     <div class="row-content"> 
             <label class="label text" for="leavetype" required>Leave Type</label>
@@ -26,7 +26,7 @@
                 <label class="text" for="medical">Medical</label>
                 <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="leavetype" id="vacation" value="Vacation" />
                 <label class="text" for="vacation">Vacation</label>
-                <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="leavetype" id="business tour" value="business tour" />
+                <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="leavetype" id="business tour" value="Business Tour" />
                 <label class="text" for="business tour">Business Tour</label>
               <span class="text-danger" *ngIf="employeeForm.controls['leavetype'].dirty && employeeForm.hasError('required','leavetype')">* Leave type Selection is required</span>
             </div>
@@ -44,14 +44,14 @@
         matInput
         [matDatepicker]= "myDatePickerr"  placeholder=" Choose Your Start Date.."
       />
-      <small class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date</small>
       <mat-datepicker-toggle
         [for]="myDatePickerr"
         matSuffix    style=" color: sandybrown "
       ></mat-datepicker-toggle>
       <mat-datepicker #myDatePickerr></mat-datepicker>
     </mat-form-field>
-    <!-- <small class="text-danger" *ngIf="employeeForm.hasError('notValid')">Not valid</small> -->
+     <span class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date></span>
+    <!-- <small class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date</small>  -->
   </div>
 
    <div class="row-content">
@@ -63,14 +63,14 @@
         [matDatepicker]= "myDatePicker" placeholder=" Choose Your End Date.."
         
       />
-      <small class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date</small>
       <mat-datepicker-toggle
         [for]="myDatePicker"
         matSuffix  style=" color: sandybrown "
       ></mat-datepicker-toggle>
       <mat-datepicker #myDatePicker></mat-datepicker>
     </mat-form-field>
-    <!-- <small class="text-danger" *ngIf="employeeForm.hasError('notValid')">Not valid</small> -->
+    <span class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date></span>
+    <!-- <small class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date</small> -->
   </div> 
 
 
@@ -98,7 +98,7 @@
          <button type="button"  [attr.disabled]="!employeeForm.valid ? true : null"  (click)="onSubmit()" style=" margin-left: 75px;
          margin-right: 75px;">Submit</button> 
 
-         <button type="button" class="resetButton button" >Reset</button>
+         <button type="button" class="resetButton button" (click)="clearForm()" >Reset</button>
         
         <!-- <button type="button"  [attr.disabled]="!employeeForm.valid ? true : null"  (click)="onSubmit()">Submit</button>  -->
     

@@ -15,7 +15,7 @@ export class AddComponent implements OnInit {
   
   employee: Employee = new Employee(0, '', '', '', '', '',);
         
-  selectedDepartment: any = [];
+  
   public employeeForm!: FormGroup;
 
   constructor(
@@ -41,10 +41,7 @@ export class AddComponent implements OnInit {
     })
     }
 
-    // this.employeeForm.setValue({
-    //   leaveStartdate: this.employee.leaveStartdate;
-    //   leaveEnddate: this.employee.leaveEnddate;
-    // })
+  
 
     checkDates(group: FormGroup) {
       if(group.controls['leaveEnddate'].value < group.controls['leaveStartdate'].value) {
@@ -58,7 +55,14 @@ export class AddComponent implements OnInit {
     // this.sendEmail();
     this.saveEmployee();
     window.alert("Employee Leave Details added Successfully!");
+    // this.employeeForm.reset();
   }
+
+  clearForm() {
+    this.employeeForm.reset();
+   }
+  
+ 
 
   goToEmployeeList() {
     this.router.navigate(['/home']);
@@ -88,14 +92,5 @@ export class AddComponent implements OnInit {
     // this.snack.open('Form submitted succesfully', 'Cancel');
   }
 
-  onChange(event: any) {
-    let index = this.selectedDepartment.indexOf(event.target.value);
-    if (index == -1) {
-      this.selectedDepartment.push(event.target.value);
-    } else {
-      this.selectedDepartment.splice(index, 1);
-    }
-    console.log(this.selectedDepartment);
-  }
 
 }

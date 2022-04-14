@@ -35,9 +35,29 @@ export class UpdateComponent implements OnInit {
       leaveEnddate: ['', Validators.required ],
       notes: ['', Validators.required ],
 
-   });
+   }, {validator: this.checkDates});
+
+   
+ this.employeeForm.setValue({
+  leaveStartdate: this.employee.leaveStartdate,
+  leaveEnddate: this.employee.leaveEnddate
+})
+
+
 
   }
+
+
+  checkDates(group: FormGroup) {
+    if(group.controls['leaveEnddate'].value < group.controls['leaveStartdate'].value) {
+      return { notValid:true }
+    }
+    return null;
+  }
+
+
+
+
 
   onSubmit(){
     this.employeeService.updateEmployee(this.id, this.employee).subscribe(data => {
@@ -48,6 +68,11 @@ export class UpdateComponent implements OnInit {
     this.router.navigate(['/home']);
     }
 
+    clearForm() {
+      this.employeeForm.reset();
+     }
+
+
 
     goToEmployeeList() {
       this.router.navigate(['/home']);
@@ -55,7 +80,7 @@ export class UpdateComponent implements OnInit {
 
     buttonClick() {
       console.log('button click');
-    
+     // this.snack.open('Form updated succesfully', 'Cancel');
     }
   
 

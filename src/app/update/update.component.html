@@ -5,17 +5,18 @@
     <!-- <form   (ngSubmit)="onSubmit()" >                  -->
         <form    [formGroup]="employeeForm" > 
         <div class="form-head">Employee Update Leave form</div>
-
-        <!-- Name -->
-        <div class="row-content">
-            <label class="label text" for="name">FullName</label>
-            <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
-                placeholder="Your name.." required [ngModelOptions]= "{ standalone: true }" />     -->
-                <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
-                placeholder="Your name.." required    /> 
-                <!-- <span>{{ employeeForm.controls['name']?.value }}</span> -->
-                <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')">* Name is required</span>
-            </div>
+        <h5 class="text-danger">*Please Update your required field</h5>
+         <!-- Name -->
+         <div class="row-content">
+          <label class="label text" for="name">FullName</label>
+          <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
+              placeholder="Your name.." required [ngModelOptions]= "{ standalone: true }" />     -->
+              <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="name" name="name"
+              placeholder="Your name.." required  /> 
+              <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')"  
+              style="width: 225px">* Name is required</span>
+          </div>
+    
 
      
 
@@ -40,6 +41,8 @@
               <label class="text" for="medical">Medical</label>
               <input type="radio" name="leavetype" value="Vacation" formControlName="leavetype" [(ngModel)]= "employee.leavetype" required   />
               <label class="text" for="vacation">Vacation</label>
+              <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="leavetype" id="business tour" value="Business Tour" />
+                <label class="text" for="business tour">Business Tour</label>
               <span class="text-danger" *ngIf="employeeForm.controls['leavetype'].dirty && employeeForm.hasError('required','leavetype')">* Leave type Selection is required</span>
 
           </div>
@@ -69,6 +72,7 @@
       ></mat-datepicker-toggle>
       <mat-datepicker #myDatePickerr></mat-datepicker>
     </mat-form-field>
+    <span class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date></span>
   </div>
 
    <div class="row-content">
@@ -86,7 +90,9 @@
       ></mat-datepicker-toggle>
       <mat-datepicker #myDatePicker></mat-datepicker>
     </mat-form-field>
+    <span class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date></span>
   </div> 
+
 
 
   <!-- Notes -->
@@ -100,7 +106,8 @@
       placeholder=""
       style="height: 100px"
     ></textarea>
-    <span class="text-danger" *ngIf="employeeForm.controls['notes'].dirty && employeeForm.hasError('required','notes')">*Reason is required</span>
+    <span class="text-danger" *ngIf="employeeForm.controls['notes'].dirty && employeeForm.hasError('required','notes')"
+    style="width: 240px">*Reason is required</span>
 
   </div>
 
@@ -109,9 +116,9 @@
     <a routerLink="/home" href="./header.component.html" class="resetButton button cancelButton">Cancel</a>
     <div class="submit-reset">
              <!-- <button type="button" class="button submitButton"  id="submitButton " (click)= "onSubmit()">Update</button> -->
-             <button type="button"  [attr.disabled]="!employeeForm.valid ? true : null"  (click)="onSubmit()" style=" margin-left: 40px;
-             margin-right: 41px;">Update</button> 
-             <button type="button" class="resetButton button" >Reset</button>
+             <button type="button"  [attr.disabled]="!employeeForm.valid ? true : null"  (click)="onSubmit()" style=" margin-left: 75px;
+             margin-right: 75px;">Update</button> 
+             <button type="button" class="resetButton button" (click)="clearForm()" >Reset</button>
     </div>
 </div>
 

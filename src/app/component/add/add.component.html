@@ -19,18 +19,37 @@
                 <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')"  
                 style="width: 225px">* Name is required</span>
             </div>
-      
 
+
+            <!-- Email Address -->
+        <div class="row-content">
+            
+          <label class="label-text" for="name"><span style="color: red">  <small>*</small></span>Email Address</label>
+          
+          <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
+              placeholder="Your name.." required [ngModelOptions]= "{ standalone: true }" />     -->
+              <input formControlName="emailAddress" [(ngModel)]= "employee.emailAddress" name="emailAddress" class="input" type="text" id="emailAddress" name="emailAddress"
+              placeholder="Your email address is.." required  /> 
+              <span class="text-danger" *ngIf="employeeForm.controls['emailAddress'].dirty && employeeForm.hasError('required','emailAddress')"  
+              style="width: 288px;">*Email Address is required</span>
+          </div>
+
+
+
+
+
+      
+            <!-- Leave Type -->
     <div class="row-content"> 
-            <label class="label-text" for="leavetype" required><span style="color: red">  <small>*</small></span>Leave Type</label>
+            <label class="label-text" for="leaveType" required><span style="color: red">  <small>*</small></span>Leave Type</label>
             <div>
-                <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="leavetype" id="medical" value="Medical" checked />
+                <input formControlName="leaveType" [(ngModel)]= "employee.leaveType" type="radio" name="leaveType" id="medical" value="Medical" checked />
                 <label class="text" for="medical">Medical</label>
-                <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="leavetype" id="vacation" value="Vacation" />
+                <input formControlName="leaveType" [(ngModel)]= "employee.leaveType" type="radio" name="leaveType" id="vacation" value="Vacation" />
                 <label class="text" for="vacation">Vacation</label>
-                <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="leavetype" id="business tour" value="Business Tour" />
+                <input formControlName="leaveType" [(ngModel)]= "employee.leaveType" type="radio" name="leaveType" id="business tour" value="Business Tour" />
                 <label class="text" for="business tour">Business Tour</label>
-              <span class="text-danger" *ngIf="employeeForm.controls['leavetype'].dirty && employeeForm.hasError('required','leavetype')">* Leave type Selection is required</span>
+              <span class="text-danger" *ngIf="employeeForm.controls['leaveType'].dirty && employeeForm.hasError('required','leaveType')">* Leave type Selection is required</span>
             </div>
         </div> 
 
@@ -41,8 +60,8 @@
  <div class="row-content" >
     <label for="startDate" class="label-text" ><span style="color: red">  <small>*</small></span>Start Date</label>
     <mat-form-field>
-      <input formControlName="leaveStartdate"
-        [(ngModel)]= "employee.leaveStartdate"
+      <input formControlName="leaveStartDate"
+        [(ngModel)]= "employee.leaveStartDate"
         matInput
         [matDatepicker]= "myDatePickerr"  placeholder=" Choose Your Start Date.."
       />
@@ -57,10 +76,10 @@
   </div>
 
    <div class="row-content">
-    <label for="leaveEnddate" class="label-text"><span style="color: red">  <small>*</small></span>End Date</label>
+    <label for="leaveEndDate" class="label-text"><span style="color: red">  <small>*</small></span>End Date</label>
     <mat-form-field>
-      <input formControlName="leaveEnddate"
-        [(ngModel)]= "employee.leaveEnddate"
+      <input formControlName="leaveEndDate"
+        [(ngModel)]= "employee.leaveEndDate"
         matInput
         [matDatepicker]= "myDatePicker" placeholder=" Choose Your End Date.."
         

@@ -6,7 +6,8 @@
         <form    [formGroup]="employeeForm" > 
         <div class="form-head">Employee Update Leave form</div>
         <h5 class="text-danger">* indicates all Field mandatory and update your required field</h5>
-         <!-- Name -->
+       
+        <!-- Name -->
          <div class="row-content">
           <label class="label-text" for="name"><span style="color: red">  <small>*</small></span>FullName</label>
           <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
@@ -18,32 +19,35 @@
           </div>
     
 
+          
+            <!-- Email Address -->
+        <div class="row-content">
+            
+          <label class="label-text" for="name"><span style="color: red">  <small>*</small></span>Email Address</label>
+          
+          <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
+              placeholder="Your name.." required [ngModelOptions]= "{ standalone: true }" />     -->
+              <input formControlName="emailAddress" [(ngModel)]= "employee.emailAddress" name="emailAddress" class="input" type="text" id="emailAddress" name="emailAddress"
+              placeholder="Your email address is.." required  /> 
+              <span class="text-danger" *ngIf="employeeForm.controls['emailAddress'].dirty && employeeForm.hasError('required','emailAddress')"  
+              style="width: 288px;">*Email Address is required</span>
+          </div>
+
      
 
 
 
 
-    <!-- <div class="row-content"> 
-            <label class="label text" for="leavetype">Leave Type</label>
-            <div>
-                <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="medical" id="medical" value="Medical" />
-                <label class="text" for="medical">Medical</label>
-                <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="vacation" id="vacation" value="Vacation" />
-                <label class="text" for="vacation">Vacation</label> #leavetypeControl="ngModel"
-            </div>
-        </div>  -->
-
-
         <div class="row-content"> 
-          <label class="label-text" for="leavetype"><span style="color: red">  <small>*</small></span>Leave Type</label>
+          <label class="label-text" for="leaveType"><span style="color: red">  <small>*</small></span>Leave Type</label>
           <div>
-              <input  type="radio" name="leavetype"  value="Medical" formControlName="leavetype" [(ngModel)]= "employee.leavetype" required  />
+              <input  type="radio" name="leaveType"  value="Medical" formControlName="leaveType" [(ngModel)]= "employee.leaveType" required  />
               <label class="text" for="medical">Medical</label>
-              <input type="radio" name="leavetype" value="Vacation" formControlName="leavetype" [(ngModel)]= "employee.leavetype" required   />
+              <input type="radio" name="leaveType" value="Vacation" formControlName="leaveType" [(ngModel)]= "employee.leaveType" required   />
               <label class="text" for="vacation">Vacation</label>
-              <input formControlName="leavetype" [(ngModel)]= "employee.leavetype" type="radio" name="leavetype" id="business tour" value="Business Tour" />
+              <input formControlName="leaveType" [(ngModel)]= "employee.leaveType" type="radio" name="leaveType" id="business tour" value="Business Tour" />
                 <label class="text" for="business tour">Business Tour</label>
-              <span class="text-danger" *ngIf="employeeForm.controls['leavetype'].dirty && employeeForm.hasError('required','leavetype')">* Leave type Selection is required</span>
+              <span class="text-danger" *ngIf="employeeForm.controls['leaveType'].dirty && employeeForm.hasError('required','leaveType')">* Leave type Selection is required</span>
 
           </div>
       </div> 
@@ -61,8 +65,8 @@
  <div class="row-content">
     <label for="leaveStartDate" class="label-text"><span style="color: red">  <small>*</small></span>Start Date</label>
     <mat-form-field>
-      <input formControlName="leaveStartdate"
-        [(ngModel)]= "employee.leaveStartdate"
+      <input formControlName="leaveStartDate"
+        [(ngModel)]= "employee.leaveStartDate"
         matInput
         [matDatepicker]= "myDatePickerr"  placeholder=" Choose Your Start Date.."
       />
@@ -76,14 +80,14 @@
   </div>
 
    <div class="row-content">
-    <label for="leaveEnddate" class="label-text"><span style="color: red">  <small>*</small></span>End Date</label>
+    <label for="leaveEndDate" class="label-text"><span style="color: red">  <small>*</small></span>End Date</label>
     <mat-form-field>
-      <input formControlName="leaveEnddate"
-        [(ngModel)]= "employee.leaveEnddate"
+      <input formControlName="leaveEndDate"
+        [(ngModel)]= "employee.leaveEndDate"
         matInput
-        [matDatepicker]= "myDatePicker"  placeholder=" Choose Your End Date.."
-        
+        [matDatepicker]= "myDatePicker"  placeholder=" Choose Your End Date.."      
       />
+
       <mat-datepicker-toggle
         [for]="myDatePicker"
         matSuffix style=" color: sandybrown "
@@ -289,13 +293,13 @@
 
 
 
-<!-- LEAVETYPE -->
+<!-- leaveType -->
 <!-- <div class="row-content"> 
-    <label class="label text" for="leavetype">Leave Type</label>
+    <label class="label text" for="leaveType">Leave Type</label>
     <div>
-        <input [(ngModel)]= "employee.leavetype" type="radio" name="medical" id="medical" value="Medical" />
+        <input [(ngModel)]= "employee.leaveType" type="radio" name="medical" id="medical" value="Medical" />
         <label class="text" for="medical">Medical</label>
-        <input [(ngModel)]= "employee.leavetype" type="radio" name="vacation" id="vacation" value="Vacation" />
+        <input [(ngModel)]= "employee.leaveType" type="radio" name="vacation" id="vacation" value="Vacation" />
         <label class="text" for="vacation">Vacation</label>
     </div>
 </div>  -->
@@ -308,7 +312,7 @@
   <div class="row-content date">
     <label for="startDate" class="label-text"> Leave Start Date</label>
   <mat-form-field>
-    <input  [(ngModel)]= "employee.leaveStartdate"
+    <input  [(ngModel)]= "employee.leaveStartDate"
      matInput [matDatepicker]="picker">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
@@ -319,7 +323,7 @@
     <label for="startDate" class="label-text">Leave End Date</label>
   <mat-form-field>
     <input
-    [(ngModel)]= "employee.leaveEnddate" matInput [matDatepicker]="picker">
+    [(ngModel)]= "employee.leaveEndDate" matInput [matDatepicker]="picker">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field></div>

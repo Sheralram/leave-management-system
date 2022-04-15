@@ -2,7 +2,7 @@
 <app-header></app-header>
 
 <div class="main-content" 
- style="margin-left: -50px; margin-right: -100px;" >  
+ style="margin-left: -100px; margin-right: -100px;" >  
     <div class="header-content">
         <div class="emp-detail-text">
             Employee Leave Details
@@ -24,6 +24,7 @@
                 <tr>
                     <th >Id</th>
                     <th>Name</th>
+                    <th>Email Address </th>
                     <th style="word-spacing: 5px">Leave Type </th>
                     <th  style="text-align: center">Reason</th>
                     <!-- <th>Gender</th> -->
@@ -38,14 +39,15 @@
             </thead>
             
                 <tr *ngFor= "let employee of employees">
-                    <td style = "margin-top: 12px">{{ employee.id }}</td>
+                    <td style = "margin-top: 13px">{{ employee.id }}</td>
                     <td>{{ employee.name }}</td>
-                    <td>{{ employee.leavetype }}</td>
+                    <td>{{ employee.emailAddress }}</td>
+                    <td>{{ employee.leaveType }}</td>
                     <td  style="width: 19%"><p style="overflow: hidden;">{{ employee.notes}}</p></td>
-                    <!-- <td>{{ employee.gender }}</td> -->
+                   
                     <!-- <td>{{ employee.department }}</td> -->
-                    <td>{{ employee.leaveStartdate}}</td>
-                    <td>{{ employee.leaveEnddate}}</td>
+                    <td>{{ employee.leaveStartDate}}</td>
+                    <td>{{ employee.leaveEndDate}}</td>
                     <!-- <td>{{ employee.salary }}</td> -->
                     <!-- <td>{{ employee.notes}}</td> -->
                     <!-- <td>{{ employee.status}}</td> -->

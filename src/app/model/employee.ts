@@ -1,11 +1,11 @@
 export class Employee {
   id!: number;
   name!: string;
-  leavetype!: string;
+  leaveType!: string;
   notes!: string;
-  leaveStartdate!: string;
-  leaveEnddate!: string;
-  
+  leaveStartDate!: string;
+  leaveEndDate!: string;
+  emailAddress!:string;
 
   // status!: string;
   
@@ -14,10 +14,11 @@ export class Employee {
   constructor(
     _id: number,
     _name: string,
-    _leaveStartdate: string,
-    _leaveEnddate: string,
-    _leavetype: string,
+    _leaveStartDate: string,
+    _leaveEndDate: string,
+    _leaveType: string,
     _notes: string,
+    _emailAddress:string,
     // _status: string,
  ) { }
 }

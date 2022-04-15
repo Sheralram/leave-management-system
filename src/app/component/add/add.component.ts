@@ -13,7 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddComponent implements OnInit {
 
   
-  employee: Employee = new Employee(0, '', '', '', '', '',);
+  employee: Employee = new Employee(0, '', '', '', '', '','',);
         
   
   public employeeForm!: FormGroup;
@@ -28,23 +28,24 @@ export class AddComponent implements OnInit {
     
       this.employeeForm = this.fb.group({
         name: ['', Validators.required ],
-        leavetype: ['', Validators.required ],
-        leaveStartdate: ['', Validators.required ],
-        leaveEnddate: ['', Validators.required ],
+        leaveType: ['', Validators.required ],
+        leaveStartDate: ['', Validators.required ],
+        leaveEndDate: ['', Validators.required ],
         notes: ['', Validators.required ],
+        emailAddress: ['', Validators.required ],
             
      }, {validator: this.checkDates});
      
      this.employeeForm.setValue({
-      leaveStartdate: this.employee.leaveStartdate,
-      leaveEnddate: this.employee.leaveEnddate
+      leaveStartDate: this.employee.leaveStartDate,
+      leaveEndDate: this.employee.leaveEndDate
     })
     }
 
   
 
     checkDates(group: FormGroup) {
-      if(group.controls['leaveEnddate'].value < group.controls['leaveStartdate'].value) {
+      if(group.controls['leaveEndDate'].value < group.controls['leaveStartDate'].value) {
         return { notValid:true }
       }
       return null;

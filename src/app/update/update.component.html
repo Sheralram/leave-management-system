@@ -5,10 +5,10 @@
     <!-- <form   (ngSubmit)="onSubmit()" >                  -->
         <form    [formGroup]="employeeForm" > 
         <div class="form-head">Employee Update Leave form</div>
-        <h5 class="text-danger">*Please Update your required field</h5>
+        <h5 class="text-danger">* indicates all Field mandatory and update your required field</h5>
          <!-- Name -->
          <div class="row-content">
-          <label class="label text" for="name">FullName</label>
+          <label class="label-text" for="name"><span style="color: red">  <small>*</small></span>FullName</label>
           <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
               placeholder="Your name.." required [ngModelOptions]= "{ standalone: true }" />     -->
               <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="name" name="name"
@@ -35,7 +35,7 @@
 
 
         <div class="row-content"> 
-          <label class="label text" for="leavetype">Leave Type</label>
+          <label class="label-text" for="leavetype"><span style="color: red">  <small>*</small></span>Leave Type</label>
           <div>
               <input  type="radio" name="leavetype"  value="Medical" formControlName="leavetype" [(ngModel)]= "employee.leavetype" required  />
               <label class="text" for="medical">Medical</label>
@@ -59,7 +59,7 @@
     
      <!-- Date -->
  <div class="row-content">
-    <label for="leaveStartDate" class="label-text">Start Date</label>
+    <label for="leaveStartDate" class="label-text"><span style="color: red">  <small>*</small></span>Start Date</label>
     <mat-form-field>
       <input formControlName="leaveStartdate"
         [(ngModel)]= "employee.leaveStartdate"
@@ -72,11 +72,11 @@
       ></mat-datepicker-toggle>
       <mat-datepicker #myDatePickerr></mat-datepicker>
     </mat-form-field>
-    <span class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date></span>
+    <span class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date</span>
   </div>
 
    <div class="row-content">
-    <label for="leaveEnddate" class="label-text">End Date</label>
+    <label for="leaveEnddate" class="label-text"><span style="color: red">  <small>*</small></span>End Date</label>
     <mat-form-field>
       <input formControlName="leaveEnddate"
         [(ngModel)]= "employee.leaveEnddate"
@@ -90,14 +90,14 @@
       ></mat-datepicker-toggle>
       <mat-datepicker #myDatePicker></mat-datepicker>
     </mat-form-field>
-    <span class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date></span>
+    <span class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date</span>
   </div> 
 
 
 
   <!-- Notes -->
   <div class="row-content">
-    <label class="label text" for="notes">Reason</label>
+    <label class="label-text" for="notes"><span style="color: red">  <small>*</small></span>Reason</label>
     <textarea formControlName="notes" 
       [(ngModel)]= "employee.notes"
       class="input"

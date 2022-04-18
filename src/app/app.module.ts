@@ -13,6 +13,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { UpdateComponent } from './update/update.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -36,6 +37,7 @@ import { UpdateComponent } from './update/update.component';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
+    Ng2SearchPipeModule
   ],
   exports: [MatFormFieldModule, MatInputModule],
   providers: [],

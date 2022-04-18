@@ -12,7 +12,7 @@ import { EmployeeService } from 'src/app/service/employee.service';
 export class HomeComponent implements OnInit {
 
   employees: Employee[] = [];
-
+  name:any;
   constructor(private employeeService: EmployeeService,
     private router: Router) {
     this.getEmployees();

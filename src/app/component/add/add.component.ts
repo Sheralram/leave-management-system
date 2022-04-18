@@ -53,9 +53,11 @@ export class AddComponent implements OnInit {
 
   onSubmit(){
     console.log(this.employee);
+    
     // this.sendEmail();
     this.saveEmployee();
     window.alert("Employee Leave Details added Successfully!");
+    
     // this.employeeForm.reset();
   }
 
@@ -83,6 +85,7 @@ export class AddComponent implements OnInit {
      this.employeeService.createEmployee(this.employee).subscribe(
        data => {console.log(data);
         this.goToEmployeeList();
+        window.location.reload();
       },
      error => console.log(error));
      this.goToEmployeeList();

@@ -2,12 +2,28 @@
 <app-header></app-header>
 
 <div class="main-content" 
- style="margin-left: -100px; margin-right: -100px;" >  
+ style="margin-left: -110px; margin-right: -110px;" >  
     <div class="header-content">
-        <div class="emp-detail-text">
+        <div class="emp-detail-text" style="    position: relative;
+        top: 54px;">
             Employee Leave Details
         </div>
+        
     </div>
+    <div class="row">
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-2" style="position: relative;
+        left: 114px;">
+        <input  class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="name">
+            
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
+    <br>
     <!-- <div>
         <a class="add-button" routerLink="/add">
             <img src="../../../assets/icons/add-24px.svg" alt="Add User Logo">
@@ -18,32 +34,33 @@
 
     <!-- <div class="form-content"> -->
     <!-- <form class="form"> -->
+        
     <div class="table-main">
         <table id="display" class="table">
             <thead>
                 <tr>
-                    <th >Id</th>
-                    <th>Name</th>
-                    <th>Email Address </th>
-                    <th style="word-spacing: 5px">Leave Type </th>
-                    <th  style="text-align: center">Reason</th>
-                    <!-- <th>Gender</th> -->
+                    <th>&nbsp; &nbsp;Id</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Email Address </th>
+                    <th class="text-center" style="word-spacing: 5px">Leave Type </th>
+                    <th class="text-center"  >Reason</th>
+                    <!-- <th>Gender</th style="text-align: center"> -->
                     <!-- <th>Department</th> -->
-                    <th style="word-spacing: 5px">Start Date</th>
-                    <th style="word-spacing: 5px">End Date</th>
+                    <th class="text-center" style="word-spacing: 5px">Start Date</th>
+                    <th class="text-center" style="word-spacing: 5px">End Date</th>
                     <!-- <th>Salary</th> -->
                     <!-- <th>Reason</th> -->
                     <!-- <th>Status</th> -->
-                    <th>Actions</th>
+                    <th class="text-center">Actions</th>
                 </tr>
             </thead>
             
-                <tr *ngFor= "let employee of employees">
-                    <td style = "margin-top: 13px">{{ employee.id }}</td>
+                <tr *ngFor= "let employee of employees |filter:name">
+                    <td style="    margin-top: 12px;">{{ employee.id }}</td>
                     <td>{{ employee.name }}</td>
                     <td>{{ employee.emailAddress }}</td>
                     <td>{{ employee.leaveType }}</td>
-                    <td  style="width: 19%"><p style="overflow: hidden;">{{ employee.notes}}</p></td>
+                    <td  style="width: 19%">{{ employee.notes}}</td>
                    
                     <!-- <td>{{ employee.department }}</td> -->
                     <td>{{ employee.leaveStartDate}}</td>

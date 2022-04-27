@@ -15,12 +15,13 @@ export class UserService {
   }
 
   loginUser(token: any){
-    localStorage.setItem("token",token)
+    
+    localStorage.setItem("token",token);
     this.getUserByToken().subscribe((n:any)=>{
       localStorage.setItem("userId", n.data.id.toString());
       localStorage.setItem("userName",n.data.fullName);
     })
-    return true
+    return true;
   }
 
   isLoggedIn(){

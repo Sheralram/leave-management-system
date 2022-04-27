@@ -16,6 +16,9 @@ import { UpdateComponent } from './update/update.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../app/service/auth.interceptor';
+
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -56,7 +59,23 @@ import { SigninComponent } from './signin/signin.component';
   ],
   exports: [MatFormFieldModule, MatInputModule],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' },         
-  { provide: LOCALE_ID, useValue: "en-GB" },],
+  { provide: LOCALE_ID, useValue: "en-GB" },
+  {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true
+      }
+  ],
   bootstrap: [AppComponent]
+
+  
 })
 export class AppModule { }
+
+// [UserService, AuthGuard,
+//   {
+//     provide: HTTP_INTERCEPTORS,
+//     useClass: AuthIntercaptor,
+//     multi: true
+//   }
+// ],

@@ -25,7 +25,8 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     console.log(this.credential)
     this.userService.generateToken(this.credential).subscribe((response: any)=>{
-      console.log(response.token)
+      console.log(response.token);
+      localStorage.setItem('token',response.token);
       this.userService.loginUser(response.token)
       this.routerlink.navigate(["/home"])
     },

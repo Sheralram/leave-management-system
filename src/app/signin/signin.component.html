@@ -1,0 +1,81 @@
+<p>signin works!</p>
+
+
+<body class="body">
+    <div class = "main-block1">
+        <img class="login-img" src="../../../assets/images/prissoft logo.png" >
+        <div class="tagline">Prismatic Softwares Private Limited </div>
+    </div>
+    <div class="main-details">
+        <div class="row">
+            <a class="links" routerLink="/login" routerLinkActive="True">
+                <div class="login">
+                    LOGIN
+                </div>
+            </a>
+            <div class="signup">
+                SIGNUP
+            </div>
+        </div>
+        <div class="row-underline">
+            <div class="login-block"></div>
+            <div class="signin-block"></div>
+        </div>
+        <form #userForm="ngForm" novalidate>
+            <div class="input-row">
+                <label class="label">Full Name</label>
+                <input class="input" required #fullName="ngModel"
+                    [class.is-invalid]="fullName.invalid && fullName.touched" type="text" name=fullName ngModel required
+                    pattern="[A-Z][a-z]{4,}">
+                <small class="text-danger" [hidden]="fullName.valid || fullName.untouched"> Minimum 4 letters with capital letter
+                </small>
+            </div>
+            <div class="input-row">
+                <label class="label">Email Id</label>
+                <input class="input" type="email" name="emailId"  #emailId="ngModel"
+                [class.is-invalid]="emailId.invalid && emailId.touched" type="text"  ngModel required
+                pattern="[A-Z][a-z]{4,}">
+                <small class="text-danger" [hidden]="emailId.valid || emailId.untouched">Email is required
+                </small>
+            </div>
+            <div class="input-row">
+                <label class="label">Password</label>
+                <input class="input" #password="ngModel" [class.is-invalid]="password.invalid && password.touched"
+                    type="password" name="password" ngModel required pattern="[a-z]{4,}">
+                <small class="text-danger" [hidden]="password.valid || password.untouched">Minimum 4 letters
+                </small>
+            </div>
+            <div class="input-row">
+                <label class="label">Mobile Number</label>
+                <input class="input" required #phoneNumber="ngModel"
+                    [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched" type="number" name="phoneNumber"
+                    ngModel required placeholder="Phone number" pattern="[0-9]{10}$">
+                <!-- <small class="forValidation" [hidden]="phoneNumber.valid || phoneNumber.untouched">Minimum 10 digits required
+                </small> -->
+                <small class="text-danger" [hidden]="phoneNumber.valid || phoneNumber.untouched">Minimum 10 digits required
+                </small>
+            </div>
+
+            <div class="invalid" [hidden]="true">
+                invalid credentials
+            </div>
+            <div class="row">
+                <button class="login-button" (click)="onSumbit(userForm)">Signup </button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>

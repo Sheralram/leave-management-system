@@ -19,9 +19,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { ToastrModule } from 'ngx-toastr';
 
-// import { SignIn } from './model/sign-in.ts/sign-in.ts.component';
-//  import { SignIn } from './sign-in.model.ts/sign-in.model.ts.component';
+ 
 import { LoginComponent } from './login/login.component';
+import { SigninComponent } from './signin/signin.component';
 
 
 
@@ -35,9 +35,8 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     AddComponent,
     UpdateComponent,
-    // SignIn.TsComponent,
-      // SignIn.Model.TsComponent,
-    LoginComponent, 
+    LoginComponent,
+    SigninComponent, 
   ],
   
   imports: [

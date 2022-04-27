@@ -1,9 +1,9 @@
 <app-header> </app-header>
 
 
-<div class="form-content" style=" margin-top: 73px;">
+<div class="form-content" style=" margin-top: 65px;">
     <!-- <form   (ngSubmit)="onSubmit()" >                  -->
-        <form    [formGroup]="employeeForm" > 
+        <form    [formGroup]= "employeeForm" > 
         <div class="form-head">Employee Update Leave form</div>
         <h5 class="text-danger">* indicates mandatory Fields</h5>
        
@@ -49,18 +49,13 @@
               <label class="text" for="vacation">Vacation</label>
               <input formControlName="leaveType" [(ngModel)]= "employee.leaveType" type="radio" name="leaveType" id="business tour" value="Business Tour" />
                 <label class="text" for="business tour">Business Tour</label>
+                <input formControlName="leaveType" [(ngModel)]= "employee.leaveType" type="radio" name="leaveType" id="backed up" value="Backed Up" checked />
+                <label class="text" for="backed up">Back Dated </label>
               <span class="text-danger" *ngIf="employeeForm.controls['leaveType'].dirty && employeeForm.hasError('required','leaveType')">* Leave type Selection is required</span>
 
           </div>
       </div> 
-
-         
-
-
-
-
-
-       
+   
 
     
      <!-- Date -->

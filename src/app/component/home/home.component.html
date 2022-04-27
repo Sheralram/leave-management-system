@@ -37,6 +37,7 @@
         
     <div class="table-main">
         <table id="display" class="table">
+            
             <thead>
                 <tr>
                     <th>&nbsp; &nbsp;Id</th>
@@ -63,22 +64,36 @@
                     <td  style="width: 19%">{{ employee.notes}}</td>
                    
                     <!-- <td>{{ employee.department }}</td> -->
-                    <td>{{ employee.leaveStartDate}}</td>
-                    <td>{{ employee.leaveEndDate}}</td>
-                    <!-- <td>{{ employee.salary }}</td> -->
+                    <td>{{ employee.leaveStartDate   }}</td>
+                    <td>{{ employee.leaveEndDate }}</td>
+
+                    <!-- <td>{{ employee.leaveStartDate | date:'MM/dd/yyyy'  }}</td>
+                    <td>{{ employee.leaveEndDate | date:'MM/dd/yyyy'}}</td> -->
+
+                    <!-- <td>{{ employee.salary| date:'fullDate' }}</td> -->
                     <!-- <td>{{ employee.notes}}</td> -->
                     <!-- <td>{{ employee.status}}</td> -->
                    
                     <td > 
-                       <button (click)= "onClickDelete()" style="margin: 3px">
+                       <!-- <button (click)= "onClickDelete('name')" style="margin: 3px"> 
+                                (click)= "deleteEmployee(employee.id)"-->
+                                <!-- (click)= "onClickDelete(employee.id)" -->
+
+                        <!-- <button  style="margin: 3px">
                         <img
-                        (click)= "deleteEmployee(employee.id)"
-                          src="../../../assets/icons/delete-black-18dp.svg"
+                        (click)= "onClickDelete(employee.id)"
+                              src="../../../assets/icons/delete-black-18dp.svg"
                           alt="delete"
-                        /></button>
+                        /></button> -->
+                        <button (click)="onClickDelete(employee.id)">
+                            <img
+                          src="../../../assets/icons/delete-black-18dp.svg"
+                          alt="delete">
+                            <i class="bi bi-trash-fill"></i>
+                        </button>
                         <button (click)= "onClick()">
                         <img 
-                        (click)= "updateEmployee(employee.id)"                          
+                        (click)= "updateEmployeePayrollById(employee.id)"                          
                           src="../../../assets/icons/create-black-18dp.svg"
                           alt="edit"
                         />

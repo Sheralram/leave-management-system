@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http' ;
 import { AppRoutingModule } from './app-routing.module';
@@ -9,21 +9,35 @@ import { AddComponent } from './component/add/add.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { UpdateComponent } from './update/update.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { MatMomentDateModule } from '@angular/material-moment-adapter';
+
+
+import { ToastrModule } from 'ngx-toastr';
+
+// import { SignIn } from './model/sign-in.ts/sign-in.ts.component';
+//  import { SignIn } from './sign-in.model.ts/sign-in.model.ts.component';
+import { LoginComponent } from './login/login.component';
+
+
 
 
 
 @NgModule({
+
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
     AddComponent,
-    UpdateComponent, 
+    UpdateComponent,
+    // SignIn.TsComponent,
+      // SignIn.Model.TsComponent,
+    LoginComponent, 
   ],
   
   imports: [
@@ -37,10 +51,13 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ToastrModule.forRoot(),
+
   ],
   exports: [MatFormFieldModule, MatInputModule],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' },         
+  { provide: LOCALE_ID, useValue: "en-GB" },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 <app-header> </app-header>
 
 
-<div class="form-content" style=" margin-top: 65px;">
+<div class="form-content" style=" margin-top: 77px;">
     <!-- <form   (ngSubmit)="onSubmit()" >   -->
         <form    [formGroup]="employeeForm" > 
         <div class="form-head">Employee Leave form</div>
@@ -34,6 +34,10 @@
               style="width: 295px;">*Email Address is required</span>
           </div>
 
+          
+
+
+
 
 
 
@@ -56,8 +60,44 @@
             </div>
         </div> 
 
-         
 
+        <!-- Leave Type DropDown
+        <div class="row-content"> 
+          <label for="emailAddress " style="color: red">*</label>
+                <label class="label-text" for="leaveType" style =" margin-left: -5px"required><span style="color: red">  <small></small></span>Leave Type</label>
+                <div>
+                      <select formControlName="leaveType" >
+                     <option [value]="leaveType" *ngFor="let  leaveType of leaveTypes">{{leaveType}}</option>
+                     </select>
+
+                  <span class="text-danger" *ngIf="employeeForm.controls['leaveType'].dirty && employeeForm.hasError('required','leaveType')">* Leave type Selection is required</span>
+                </div>
+            </div>  -->
+
+
+
+
+
+        <!-- <input type="" [formControl]="name"> -->
+
+
+
+        
+        <!-- Leavetype DropDown
+        <div class="row">
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem>Action - 1</button>
+                <button ngbDropdownItem>Another Action</button>
+                <button ngbDropdownItem>Something else is here</button>
+              </div>
+            </div>
+          </div>        -->
+
+
+      
     
      <!-- Date -->
  <div class="row-content" >
@@ -67,7 +107,9 @@
       <input formControlName="leaveStartDate"
         [(ngModel)]= "employee.leaveStartDate"
         matInput
-        [matDatepicker]= "myDatePickerr"  placeholder=" Choose Your Start Date.."
+        [matDatepicker]= "myDatePickerr" 
+        
+        placeholder=" Choose Your Start Date.."
       />
       <mat-datepicker-toggle
         [for]="myDatePickerr"
@@ -136,6 +178,7 @@
 
 
 </form>
+
 
 </div>
 

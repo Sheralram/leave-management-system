@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../model/employee';
 import { EmployeeService } from '../service/employee.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-update',
@@ -18,12 +20,13 @@ export class UpdateComponent implements OnInit {
   constructor(private employeeService: EmployeeService,
     private fb : FormBuilder,
     private route: ActivatedRoute,
-    private router: Router) {  }
+    private router: Router,
+    private toastr: ToastrService) {  }
 
   ngOnInit(): void {
 
     this.id = this.route.snapshot.params['id'];
-    this.employeeService.getEmployeeById(this.id).subscribe(data => {
+    this.employeeService.getEmployeePayrollDataById(this.id).subscribe(data => {
       this.employee = data;
     }, error => console.log(error));
 
@@ -56,16 +59,13 @@ export class UpdateComponent implements OnInit {
     return null;
   }
 
-
-
-
-
   onSubmit(){
-    this.employeeService.updateEmployee(this.id, this.employee).subscribe(data => {
+    this.employeeService.updateEmployeePayrollById(this.id, this.employee).subscribe(data => {
       this.goToEmployeeList();
     },
     error => console.log(error));
-    window.alert("Employee Leave Detail is updated Successfully!");
+    this.toastr.success('Leave Updated!', 'Success!');
+    // window.alert("Employee Leave Detail is updated Successfully!");
     this.router.navigate(['/home']);
     }
 

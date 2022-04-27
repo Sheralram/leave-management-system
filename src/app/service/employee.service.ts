@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class EmployeeService {
   
-  private baseURL =  'http://localhost:9090/lms';
+  private baseURL =  'http://localhost:9091/leave-management-system';
   // private createURL = 'http://localhost:8080/employee-payroll-app/create';http://localhost:9090/lms/employees
   // private getURL =    'http://localhost:8080/employee-payroll-app/get/5';
   // private updateURL = 'http://localhost:8080/employee-payroll-app/update/{id}';
@@ -17,24 +17,24 @@ export class EmployeeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getEmployeesList(): Observable<Employee[]> {
-    return this.httpClient.get<Employee[]>(`${this.baseURL}/employees-list`);
+  getAllEmployee(): Observable<Employee[]> {
+    return this.httpClient.get<Employee[]>(`${this.baseURL}/get-all-employee`);
   }
  
-  createEmployee (employee: Employee): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}/employees-create`, employee);
+  addEmployeePayrollData (employee: Employee): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/create`, employee);
   }
 
-  getEmployeeById(id: number): Observable<Employee> {
-    return this.httpClient.get<Employee>(`${this.baseURL}/employees/${id}`);
+  getEmployeePayrollDataById(id: number): Observable<Employee> {
+    return this.httpClient.get<Employee>(`${this.baseURL}/get/${id}`);
   }
 
-  updateEmployee(id: number, employee: Employee): Observable<Object> {
-    return this.httpClient.put(`${this.baseURL}/employees-update/${id}`, employee);
+  updateEmployeePayrollById(id: number, employee: Employee): Observable<Object> {
+    return this.httpClient.put(`${this.baseURL}/update/${id}`, employee);
   }
 
-  deleteEmployee(id: number): Observable<Object> {
-    return this.httpClient.delete(`${this.baseURL}/employees-delete/${id}`);
+  deleteEmployeePayroll(id: number): Observable<Object> {
+    return this.httpClient.delete(`${this.baseURL}/delete/${id}`);
   }
 
   send(employee: Employee): Observable<Object>{

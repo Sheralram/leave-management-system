@@ -25,11 +25,11 @@ import { ToastrModule } from 'ngx-toastr';
  
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
 
-
-
-
-
+// import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
 
   declarations: [
@@ -55,6 +55,11 @@ import { SigninComponent } from './signin/signin.component';
     MatInputModule,
     Ng2SearchPipeModule,
     ToastrModule.forRoot(),
+    MatSelectModule,
+    MatCardModule,
+    // MatMomentDateModule,
+    MatGridListModule
+ 
 
   ],
   exports: [MatFormFieldModule, MatInputModule],
@@ -72,10 +77,3 @@ import { SigninComponent } from './signin/signin.component';
 })
 export class AppModule { }
 
-// [UserService, AuthGuard,
-//   {
-//     provide: HTTP_INTERCEPTORS,
-//     useClass: AuthIntercaptor,
-//     multi: true
-//   }
-// ],

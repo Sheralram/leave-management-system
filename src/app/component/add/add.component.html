@@ -103,12 +103,12 @@
  <div class="row-content" >
   <label for="leaveStartDate " style="color: red">*</label>
     <label for="startDate" class="label-text" style =" margin-left: -5px" ><span style="color: red">  <small></small></span>Start Date</label>
-    <mat-form-field>
+    <mat-form-field color="accent">
       <input formControlName="leaveStartDate"
         [(ngModel)]= "employee.leaveStartDate"
         matInput
         [matDatepicker]= "myDatePickerr" 
-        
+        (dateChange)="dateChange($event)"        
         placeholder=" Choose Your Start Date.."
       />
       <mat-datepicker-toggle
@@ -124,15 +124,16 @@
    <div class="row-content">
     <label for="leaveEndDate " style="color: red">*</label>
     <label for="leaveEndDate" class="label-text" style =" margin-left: -5px"><span style="color: red">  <small></small></span>End Date</label>
-    <mat-form-field>
+    <mat-form-field color="accent">
       <input formControlName="leaveEndDate"
         [(ngModel)]= "employee.leaveEndDate"
         matInput
-        [matDatepicker]= "myDatePicker" placeholder=" Choose Your End Date.."
-        
-      />
-      <mat-datepicker-toggle
-        [for]="myDatePicker"
+        [matDatepicker]= "myDatePicker"
+        [min]= "minDate"
+        placeholder=" Choose Your End Date.."
+        />
+      <mat-datepicker-toggle 
+        [for]= "myDatePicker"
         matSuffix  style=" color: sandybrown "
       ></mat-datepicker-toggle>
       <mat-datepicker #myDatePicker></mat-datepicker>

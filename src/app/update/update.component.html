@@ -13,7 +13,7 @@
           <label class="label-text" for="name"><span style="color: red">  <small></small></span>FullName</label>
           <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
               placeholder="Your name.." required [ngModelOptions]= "{ standalone: true }" />     -->
-              <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="name" name="name"
+              <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="name" 
               placeholder="Your name.." required  /> 
               <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')"  
               style="width: 225px">* Name is required</span>
@@ -62,11 +62,13 @@
  <div class="row-content">
   <label for="emailAddress " style="color: red">*</label>
     <label for="leaveStartDate" class="label-text" style =" margin-left: -5px"><span style="color: red">  <small></small></span>Start Date</label>
-    <mat-form-field>
+    <mat-form-field color="accent">
       <input formControlName="leaveStartDate"
         [(ngModel)]= "employee.leaveStartDate"
         matInput
-        [matDatepicker]= "myDatePickerr"  placeholder=" Choose Your Start Date.."
+        [matDatepicker]= "myDatePickerr" 
+        (dateChange)="dateChange($event)"
+        placeholder=" Choose Your Start Date.."
       />
       <mat-datepicker-toggle
         [for]="myDatePickerr"
@@ -80,14 +82,16 @@
    <div class="row-content">
     <label for="leaveEndDate " style="color: red">*</label>
     <label for="leaveEndDate" class="label-text" style =" margin-left: -5px"><span style="color: red">  <small></small></span>End Date</label>
-    <mat-form-field>
+    <mat-form-field color="accent">
       <input formControlName="leaveEndDate"
         [(ngModel)]= "employee.leaveEndDate"
         matInput
-        [matDatepicker]= "myDatePicker"  placeholder=" Choose Your End Date.."      
+        [matDatepicker]= "myDatePicker" 
+        [min]= "minDate"
+        placeholder=" Choose Your End Date.."      
       />
 
-      <mat-datepicker-toggle
+      <mat-datepicker-toggle #leaveEndDate color="primary"
         [for]="myDatePicker"
         matSuffix style=" color: sandybrown "
       ></mat-datepicker-toggle>

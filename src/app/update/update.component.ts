@@ -4,7 +4,7 @@ import { Employee } from '../model/employee';
 import { EmployeeService } from '../service/employee.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-update',
@@ -17,11 +17,22 @@ export class UpdateComponent implements OnInit {
   employee: Employee = new Employee(0, '', '', '', '', '','');
   public employeeForm!: FormGroup;
 
+  minDateToFinish = new Subject<string>();
+  minDate: Date | undefined;
+
+  dateChange(e: { value: { toString: () => string; }; }) {
+    this.minDateToFinish.next(e.value.toString());
+  }
+
+
   constructor(private employeeService: EmployeeService,
     private fb : FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private toastr: ToastrService) {  }
+    private toastr: ToastrService)
+     {  this.minDateToFinish.subscribe(r => {
+      this.minDate = new Date(r);
+      }) }
 
   ngOnInit(): void {
 

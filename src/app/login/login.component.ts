@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token',response.token);
       this.userService.loginUser(response.token)
       this.routerlink.navigate(["/home"])
+      
     },
       error => { console.log(error); this.wrongCredential = true })
   }

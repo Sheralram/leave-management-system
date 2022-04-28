@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.getEmployees();
     }, 3000);
+    
   }
 
  
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
       console.log(data.values);
       this.employees = data;
     })  
+    
   }
 
   updateEmployeePayrollById(id: number) {
@@ -53,24 +55,9 @@ export class HomeComponent implements OnInit {
     //  window.alert("You just  Enter in Update Employee Form Successfully!");
   }
 
-  // onClickDelete(name: string){
-  //   if(confirm("Are you sure to delete  this record " +name)) {
-  //     console.log("Implement delete functionality here");
-  //     console.log("delete successfully" );
-  //   this.toastr.error('Leave Deleted!', 'Delete!');
-  //   }else{
-  //     console.log("Not deleted!")
-  //   }
-    
-  //   // window.alert("Employee Leave Detail is deleted Successfully!");
-  // }
+ 
 
-
-  // deleteEmployee(id?: number){
-  //   this.employeeService.deleteEmployeeById(id).subscribe();
-  //   this.router.navigate(['employees-list']);
-  //   window.location.reload();
-  // }
+ 
   onClickDelete(id: number){   
   var result = confirm("Want to delete the record?");
   if (result) {

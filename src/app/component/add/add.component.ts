@@ -6,6 +6,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { formatDate } from '@angular/common';
 import { Subscription } from 'rxjs'
+import { Subject } from 'rxjs';
+import { UserService } from 'src/app/service/user.service';
 
 
 @Component({
@@ -14,7 +16,6 @@ import { Subscription } from 'rxjs'
   styleUrls: ['./add.component.scss']
 
 })
-
 
 export class AddComponent implements OnInit {
  
@@ -25,12 +26,24 @@ export class AddComponent implements OnInit {
   
   public employeeForm!: FormGroup;
 
+  minDateToFinish = new Subject<string>();
+  minDate: Date | undefined;
+
+  dateChange(e: { value: { toString: () => string; }; }) {
+    this.minDateToFinish.next(e.value.toString());
+  }
+
+
   constructor(
     //private snack: MatSnackBar,
     private fb : FormBuilder,
     private employeeService : EmployeeService,
     private router: Router,
-    private toastr: ToastrService) {  }
+    private toastr: ToastrService) 
+    {  this.minDateToFinish.subscribe(r => {
+      this.minDate = new Date(r);
+      })
+   }
 
     // minDate: Moment;
 // maxDate: Moment;
@@ -59,9 +72,7 @@ export class AddComponent implements OnInit {
       leaveEndDate: formatDate(this.employee.leaveEndDate,'yyyy-MM-dd', 'en-US'),
     
     })
-    }
-
-  
+    } 
 
     checkDates(group: FormGroup) {
       if(group.controls['leaveEndDate'].value < group.controls['leaveStartDate'].value) {
@@ -73,11 +84,15 @@ export class AddComponent implements OnInit {
   onSubmit(){
     console.log(this.employee);
     console.log("Added Data")
-    
-    // this.sendEmail();
     this.saveEmployee();
+    
     //  window.alert("Employee Leave Details added Successfully!");
      this.toastr.success('Leave Added!', 'Success!');
+    //  this.employeeService.getAllEmployee
+    
+    this.employeeService.getAllEmployee();  
+      // window.location.reload();
+      
     // this.employeeForm.reset();
   }
 
@@ -104,6 +119,7 @@ export class AddComponent implements OnInit {
     // this.employee.department = this.selectedDepartment;
      this.employeeService.addEmployeePayrollData(this.employee).subscribe(
        data => {console.log(data);
+        window.location.reload();
         this.goToEmployeeList();
 
         window.location.reload();

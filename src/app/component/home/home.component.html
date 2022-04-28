@@ -4,7 +4,7 @@
 <div class="main-content" 
  style="margin-left: -110px; margin-right: -110px;" >  
     <div class="header-content">
-        <div class="emp-detail-text" style="    position: relative;
+        <div class="emp-detail-text" style="position: relative;
         top: 54px;">
             Employee Leave Details
         </div>
@@ -57,18 +57,19 @@
             </thead>
             
                 <tr *ngFor= "let employee of employees |filter:name">
-                    <td style="    margin-top: 12px;">{{ employee.id }}</td>
+                    <td style="    margin-top: 9px;">{{ employee.id }}</td>
                     <td>{{ employee.name }}</td>
                     <td>{{ employee.emailAddress }}</td>
                     <td>{{ employee.leaveType }}</td>
                     <td  style="width: 19%">{{ employee.notes}}</td>
                    
                     <!-- <td>{{ employee.department }}</td> -->
-                    <td>{{ employee.leaveStartDate   }}</td>
-                    <td>{{ employee.leaveEndDate }}</td>
 
-                    <!-- <td>{{ employee.leaveStartDate | date:'MM/dd/yyyy'  }}</td>
-                    <td>{{ employee.leaveEndDate | date:'MM/dd/yyyy'}}</td> -->
+                    <!-- <td>{{ employee.leaveStartDate   }}</td>
+                    <td>{{ employee.leaveEndDate }}</td> -->
+
+                    <td>{{ employee.leaveStartDate | date:'MM/dd/yyyy'  }}</td>
+                    <td>{{ employee.leaveEndDate | date:'MM/dd/yyyy'}}</td>
 
                     <!-- <td>{{ employee.salary| date:'fullDate' }}</td> -->
                     <!-- <td>{{ employee.notes}}</td> -->

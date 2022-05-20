@@ -14,6 +14,9 @@ export class UserService {
     return this.http.post(this.baseURL + "/token", credentials)
   }
 
+  exportIntoExcel(){
+    return this.http.get(this.baseURL + "/records/export/excel", {responseType: 'arraybuffer' as  'json'})
+  }
   loginUser(token: any){
     
     localStorage.setItem("token",token);

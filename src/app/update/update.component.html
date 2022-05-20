@@ -1,20 +1,22 @@
 <app-header> </app-header>
 
 
-<div class="form-content" style=" margin-top: 65px;">
+<div class="form-content" style=" margin-top: 75px;">
     <!-- <form   (ngSubmit)="onSubmit()" >                  -->
         <form    [formGroup]= "employeeForm" > 
         <div class="form-head">Employee Update Leave form</div>
         <h5 class="text-danger">* indicates mandatory Fields</h5>
        
         <!-- Name -->
-         <div class="row-content">
+         <div class="row-content" *ngFor= "let item of userDetails">
           <label for="name " style="color: red">*</label>
           <label class="label-text" for="name"><span style="color: red">  <small></small></span>FullName</label>
           <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
               placeholder="Your name.." required [ngModelOptions]= "{ standalone: true }" />     -->
               <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="name" 
-              placeholder="Your name.." required  /> 
+                  placeholder="Your name.." required   /> 
+                  <span> {{ item.name}}</span>
+              <!-- <h3  *ngFor= "let item of userDetails">{{ item.name}}</h3> -->
               <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')"  
               style="width: 225px">* Name is required</span>
           </div>
@@ -22,14 +24,14 @@
 
           
             <!-- Email Address -->
-        <div class="row-content"  >
+          <div class="row-content"  >
           <label for="name " style="color: red">*</label>
           <label class="label-text" for="emailAddress"><span style="color: red">  <small></small></span>Email </label>
           
           <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
               placeholder="Your name.." required [ngModelOptions]= "{ standalone: true }" />     -->
               <input formControlName="emailAddress" [(ngModel)]= "employee.emailAddress" name="emailAddress" class="input" type="text" id="emailAddress" name="emailAddress"
-              placeholder="Your email address is.." required style="margin-left: 23px" /> 
+              placeholder="Example: xyz@gmail.com" required style="margin-left: 23px" /> 
               <span class="text-danger" *ngIf="employeeForm.controls['emailAddress'].dirty && employeeForm.hasError('required','emailAddress')"  
               style="width: 288px;">*Email Address is required</span>
           </div>
@@ -286,14 +288,14 @@
 
         <!-- <form [formGroup]="employeeForm"  >
         
-          <div class="form-head">Employee Leave Update form</div> --> -->
+          <div class="form-head">Employee Leave Update form</div> -->
 
 
         
 <!-- Name -->
 <!-- <div class="row-content">
     <label class="label text" for="name">Name</label>
-    <!-- <input [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="firstName"
+   <input [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="firstName"
         placeholder="Your name.." required [ngModelOptions]="{ standalone: true }" /> -->
         <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
         placeholder="Your name.." required  /> 

@@ -14,24 +14,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { UpdateComponent } from './update/update.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-// import { MatMomentDateModule } from '@angular/material-moment-adapter';
-
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../app/service/auth.interceptor';
-
-
 import { ToastrModule } from 'ngx-toastr';
-
- 
 import { LoginComponent } from './login/login.component';
 import { SigninComponent } from './signin/signin.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
-
-// import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import {MatGridListModule} from '@angular/material/grid-list';
-@NgModule({
+import { JwPaginationModule } from 'jw-angular-pagination';
 
+@NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -39,9 +32,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AddComponent,
     UpdateComponent,
     LoginComponent,
-    SigninComponent, 
+    SigninComponent,
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -57,23 +50,23 @@ import {MatGridListModule} from '@angular/material/grid-list';
     ToastrModule.forRoot(),
     MatSelectModule,
     MatCardModule,
-    // MatMomentDateModule,
-    MatGridListModule
- 
+    MatGridListModule,
+    JwPaginationModule
+   ],
 
-  ],
   exports: [MatFormFieldModule, MatInputModule],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' },         
+  providers: 
+
+  [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' },         
   { provide: LOCALE_ID, useValue: "en-GB" },
   {
         provide: HTTP_INTERCEPTORS,
         useClass: AuthInterceptor,
         multi: true
-      }
+      },
   ],
   bootstrap: [AppComponent]
 
-  
 })
 export class AppModule { }
 

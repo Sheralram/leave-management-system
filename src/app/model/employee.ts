@@ -7,7 +7,6 @@ export class Employee {
   leaveEndDate!: string;
   emailAddress!:string;
 
-  // status!: string;
   
 
 
@@ -19,7 +18,7 @@ export class Employee {
     _leaveType: string,
     _notes: string,
     _emailAddress:string,
-    // _status: string,
+   
  ) { }
 }
 

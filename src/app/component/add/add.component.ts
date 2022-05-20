@@ -8,6 +8,7 @@ import { formatDate } from '@angular/common';
 import { Subscription } from 'rxjs'
 import { Subject } from 'rxjs';
 import { UserService } from 'src/app/service/user.service';
+// import { threadId } from 'worker_threads';
 
 
 @Component({
@@ -20,18 +21,27 @@ import { UserService } from 'src/app/service/user.service';
 export class AddComponent implements OnInit {
  
   
-  employee: Employee = new Employee(0, '', '', '', '', '','',);
+  employee: Employee = new Employee(0, '', '', '', '', '','');
   leaveTypes = ['Medical','Vacation','Business Tour','Other','Back Dated'];
   // testSubscription: Subscription;     
-  
+    
+   differenceDate: number | undefined;
   public employeeForm!: FormGroup;
 
   minDateToFinish = new Subject<string>();
   minDate: Date | undefined;
+  startDate: number | undefined;
+  endDate: number | undefined;
 
   dateChange(e: { value: { toString: () => string; }; }) {
     this.minDateToFinish.next(e.value.toString());
   }
+
+  // myFilter = (d: Date): boolean => {
+  //   const day = d.getDay();
+  //   // Prevent Saturday and Sunday from being selected.
+  //   return day !== 0 && day !== 6;
+  // }
 
 
   constructor(
@@ -49,13 +59,7 @@ export class AddComponent implements OnInit {
 // maxDate: Moment;
 
   ngOnInit(): void {
-    // this.testSubscription = this.leaveType.valueChanges
-    // // .pipe(debounceTime(100))
-    // .subscribe(value => console.log(value));
-    // const currentYear =moment().year();
-    // this.minDate = moment([currentYear - 1, 0, 1]);
-    // this.maxDate = moment([currentYear + 1, 11, 31]);
-    
+   
       this.employeeForm = this.fb.group({
         name: ['', Validators.required ],
         leaveType: ['', Validators.required ],
@@ -70,9 +74,15 @@ export class AddComponent implements OnInit {
       //  date: formatDate(new Date(), 'dd/mm/yyyy', 'en-US'),
       leaveStartDate: formatDate(this.employee.leaveStartDate,'yyyy-MM-dd', 'en-US'),
       leaveEndDate: formatDate(this.employee.leaveEndDate,'yyyy-MM-dd', 'en-US'),
-    
-    })
+      })
     } 
+
+    difference(){
+     this.startDate = new Date(this.employee.leaveStartDate).getTime();
+     this.endDate = new Date(this.employee.leaveEndDate).getTime();
+     this.differenceDate = (this.endDate - this.startDate)/86400000;
+     console.log("hello difference date");
+    }
 
     checkDates(group: FormGroup) {
       if(group.controls['leaveEndDate'].value < group.controls['leaveStartDate'].value) {
@@ -80,6 +90,7 @@ export class AddComponent implements OnInit {
       }
       return null;
     }
+
 
   onSubmit(){
     console.log(this.employee);

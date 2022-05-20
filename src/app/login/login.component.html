@@ -1,74 +1,14 @@
-<p>login works!</p>
+<!-- <p>login works!</p> -->
 
 
-<body class = "body">
+<body class="body">
 
-    <div class = "main-block1">
-        <img class="login-img" src="../../../assets/images/prissoft logo.png" >
+    <div class="main-block1">
+        <img class="login-img" src="../../../assets/images/prissoft logo.png">
         <div class="tagline">Prismatic Softwares Private Limited </div>
     </div>
     <div class="main-details">
-        <!-- <mat-tab-group>
-            <mat-tab class="login" label="LOGIN"> 
-                <div class="email-password-row">
-                    <label class="label">Email Id</label>
-                    <input [(ngModel)]="credential.emailId" class="input" type="email"> 
-                </div>
-                <div class="email-password-row">
-                    <label class="label">Password</label>
-                    <input [(ngModel)]="credential.password" class="input" type="password">
-                    <div class="forget">Forget Password</div>
-                </div>
-        
-                <div class="invalid" [hidden]="!wrongCredential">
-                    invalid credentials
-                </div>
-                <div class="row">
-                    <button (click)="onSubmit()" class="login-button">Login</button>
-                </div>
-                <div class="or-row">
-                    <div class="line"></div>
-                    <div class="or">OR</div>
-                    <div class="line"></div>
-                </div>
-                <div class="link-row">
-                    <div class="facebook">facebook</div>
-                    <div class="google">Google</div>
-                </div> 
 
-            </mat-tab>
-            <mat-tab class="signup" label="SIGNUP"> 
-                <div class="row-underline">
-                    <div class="login-block"></div>
-                    <div class="signin-block"></div>
-                </div>
-                <div class="input-row">
-                    <label class="label">Full Name</label>
-                    <input  class="input" type="text">
-                </div>
-                <div class="input-row">
-                    <label class="label">Email Id</label>
-                    <input  class="input" type="email"> 
-                </div>
-                <div class="input-row">
-                    <label class="label">Password</label>
-                    <input  class="input" type="password">
-                </div>
-                <div class="input-row">
-                    <label class="label">Mobile Number</label>
-                    <input  class="input" type="tel">
-                </div>
-        
-                <div class="invalid" [hidden]="true">
-                    invalid credentials
-                </div>
-                <div class="row">
-                    <button class="login-button">Signup</button>
-                </div>
-
-
-            </mat-tab>
-        </mat-tab-group> -->
 
         <div class="row">
             <div class="login">
@@ -86,11 +26,11 @@
         </div>
         <div class="email-password-row">
             <label class="label">Email Id</label>
-            <input [(ngModel)]= "credential.emailId" class="input" type="email">
+            <input [(ngModel)]="credential.emailId" class="input" type="email">
         </div>
         <div class="email-password-row">
             <label class="label">Password</label>
-            <input [(ngModel)]= "credential.password" class="input" type="password">
+            <input [(ngModel)]="credential.password" class="input" type="password">
             <a class="links" routerLink="/forget-password" routerLinkActive="True">
                 <div class="forget">Forget Password</div>
             </a>

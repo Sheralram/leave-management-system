@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../model/employee';
 import { EmployeeService } from '../service/employee.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup,FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 
@@ -24,7 +24,13 @@ export class UpdateComponent implements OnInit {
     this.minDateToFinish.next(e.value.toString());
   }
 
-
+  userDetails = [{"name": " ",
+                  "leaveType" :"",
+                  "leaveStartDate": "",
+                  "leaveEndDate": "",
+                  "notes": "",
+                  "emailAddress": ""}];
+                  
   constructor(private employeeService: EmployeeService,
     private fb : FormBuilder,
     private route: ActivatedRoute,
@@ -34,11 +40,12 @@ export class UpdateComponent implements OnInit {
       this.minDate = new Date(r);
       }) }
 
-  ngOnInit(): void {
-
+  ngOnInit(): void { 
+    
     this.id = this.route.snapshot.params['id'];
-    this.employeeService.getEmployeePayrollDataById(this.id).subscribe(data => {
-      this.employee = data;
+    this.employeeService.getEmployeePayrollDataById(this.id).subscribe((data : any) => { 
+      this.employee = data.data;
+      console.log("mydata",this.employee)
     }, error => console.log(error));
 
 
@@ -49,17 +56,12 @@ export class UpdateComponent implements OnInit {
       leaveEndDate: ['', Validators.required ],
       notes: ['', Validators.required ],
       emailAddress: ['', Validators.required ],
+       }, {validator: this.checkDates});
 
-   }, {validator: this.checkDates});
-
-   
- this.employeeForm.setValue({
-  leaveStartDate: this.employee.leaveStartDate,
-  leaveEndDate: this.employee.leaveEndDate
-})
-
-
-
+     this.employeeForm.setValue({
+      leaveStartDate: this.employee.leaveStartDate,
+      leaveEndDate: this.employee.leaveEndDate
+    })
   }
 
 
@@ -83,8 +85,6 @@ export class UpdateComponent implements OnInit {
     clearForm() {
       this.employeeForm.reset();
      }
-
-
 
     goToEmployeeList() {
       this.router.navigate(['/home']);

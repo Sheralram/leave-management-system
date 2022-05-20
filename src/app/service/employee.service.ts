@@ -10,10 +10,7 @@ import { Observable } from 'rxjs';
 export class EmployeeService {
   
   private baseURL =  'http://localhost:9091/leave-management-system';
-  // private createURL = 'http://localhost:8080/employee-payroll-app/create';http://localhost:9090/lms/employees
-  // private getURL =    'http://localhost:8080/employee-payroll-app/get/5';
-  // private updateURL = 'http://localhost:8080/employee-payroll-app/update/{id}';
-  // private deleteURL = 'http://localhost:8080/employee-payroll-app/delete/\';
+  
 
   constructor(private httpClient: HttpClient) { }
 

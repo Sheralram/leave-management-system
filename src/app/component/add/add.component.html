@@ -1,21 +1,18 @@
 <app-header> </app-header>
 
 
-<div class="form-content" style=" margin-top: 77px;">
-    <!-- <form   (ngSubmit)="onSubmit()" >   -->
+<div class="form-content" style=" margin-top: 74px;">
+    
         <form    [formGroup]="employeeForm" > 
         <div class="form-head">Employee Leave form</div>
-        <h5 class="text-danger">* All fields Mandatory</h5>
-
+        <h5 class="text-danger"> *All fields Mandatory </h5>
+ 
         <!-- Name -->
         <div class="row-content">
           <label for="name " style="color: red">*</label>
             
             <label class="label-text" for="name"><span style="color: red">  <small></small></span>FullName</label>
-            
-            <!-- <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="first" name="name"
-                placeholder="Your name.." required [ngModelOptions]= "{ standalone: true }" />     -->
-                <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="name" name="name"
+            <input formControlName="name" [(ngModel)]= "employee.name" name="name" class="input" type="text" id="name" name="name"
                 placeholder="Your name.." required  /> 
                 <span class="text-danger" *ngIf="employeeForm.controls['name'].dirty && employeeForm.hasError('required','name')"  
                 style="width: 295px">* Name is required</span>
@@ -26,23 +23,15 @@
         <div class="row-content" >
           <label for="emailAddress " style="color: red">*</label> 
           <label class="label-text" for="emailAddress" style =" margin-left: 0px"><span style="color: red">  <small></small></span>Email <span></span> </label>
-          
+        
          
               <input formControlName="emailAddress" [(ngModel)]= "employee.emailAddress" name="emailAddress" class="input" type="text" id="emailAddress" name="emailAddress"
-              placeholder="Your email address is.." required  style="margin-left: 23px" /> 
+              placeholder="Example: xyz@gmail.com" required  style="margin-left: 23px" /> 
               <span class="text-danger" *ngIf="employeeForm.controls['emailAddress'].dirty && employeeForm.hasError('required','emailAddress')"  
               style="width: 295px;">*Email Address is required</span>
           </div>
 
           
-
-
-
-
-
-
-
-      
             <!-- Leave Type -->
     <div class="row-content"> 
       <label for="emailAddress " style="color: red">*</label>
@@ -121,6 +110,7 @@
     <!-- <small class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date</small>  -->
   </div>
 
+
    <div class="row-content">
     <label for="leaveEndDate " style="color: red">*</label>
     <label for="leaveEndDate" class="label-text" style =" margin-left: -5px"><span style="color: red">  <small></small></span>End Date</label>
@@ -141,6 +131,7 @@
     <span class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date></span>
     <!-- <small class="text-danger" *ngIf="employeeForm.hasError('notValid')">Invalid Date:The date can't be less than Start Date</small> -->
   </div> 
+
 
 
   <!-- Notes -->
@@ -166,52 +157,19 @@
     <a routerLink="/home" href="./header.component.html" class="resetButton button cancelButton" style ="margin-left: 80px">Cancel</a>
     <div class="submit-reset">
          <button type="button" class="button submitButton"  id="submitButton"  [attr.disabled]="!employeeForm.valid ? true : null" [disabled]="!employeeForm.valid" (click)="onSubmit()">Submit</button>
-         <!-- <button type="button"  [attr.disabled]="!employeeForm.valid ? true : null"  (click)="onSubmit()" style=" margin-left: 75px;
-         margin-right: 75px;">Submit</button>  -->
-
+        
          <button type="button" class="resetButton button" (click)="clearForm()" >Reset</button>
         
-        <!-- <button type="button"  [attr.disabled]="!employeeForm.valid ? true : null"  (click)="onSubmit()">Submit</button>  -->
+        
     
       </div>
 </div>
-
 
 
 </form>
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
